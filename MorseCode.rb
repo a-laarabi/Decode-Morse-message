@@ -15,11 +15,16 @@ def decode_char (char)
   morseCode[char]
 end
 
+def decode_word (string)  
+  string.split(' ').map {|char| decode_char(char)}.join
+end
+
+
+
+# decode_char(".-")
+
+# decode_word("-- -.--")
+
 # decode("-- -.--   -. .- -- .")
 
-# decode_word("-- -.--") => "MY"
-def decode_word (string)
-  # full_string = ""
-  
-  string.split(' ').each {|char| decode_char(char)}
-end
+# decode("      .-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...")
