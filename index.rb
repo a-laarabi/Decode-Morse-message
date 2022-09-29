@@ -1,7 +1,5 @@
-#!/usr/bin/ruby
-
-def decode_char (char)
-  morseCode = {
+def decode_char(char)
+  morse_code = {
     '-----' => '0', '.----' => '1', '..---' => '2', '...--' => '3', '....-' => '4',
     '.....' => '5', '-....' => '6', '--...' => '7', '---..' => '8', '----.' => '9',
     '.-' => 'A', '-...' => 'B', '-.-.' => 'C', '-..' => 'D', '.' => 'E',
@@ -12,14 +10,22 @@ def decode_char (char)
     '--..' => 'Z', ' ' => ' '
   }
 
-  morseCode[char]
+  morse_code[char]
 end
+
+def decode_word(string)
+  spliter = ' '
+  string.split(spliter).map { |char| decode_char(char) }.join
+end
+
+# decode_char(".-")
+
+def decode(message)
+  message.split('   ').map { |string| decode_word(string) }.join(' ')
+end
+
+# decode_word("-- -.--")
 
 # decode("-- -.--   -. .- -- .")
 
-# decode_word("-- -.--") => "MY"
-def decode_word (string)
-  # full_string = ""
-  
-  string.split(' ').each {|char| decode_char(char)}
-end
+# decode("      .-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...")
