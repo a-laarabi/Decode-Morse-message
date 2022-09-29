@@ -20,6 +20,10 @@ end
 
 # decode_char(".-")
 
+def decode (message)  
+  message.split('   ').map {|string| decode_word(string)}.join
+end
+
 # decode_word("-- -.--")
 
 # decode("-- -.--   -. .- -- .")
